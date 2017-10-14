@@ -6,9 +6,6 @@
 - harddisk 调整插件
 
 ```
-# vagrant halt
 cd path_to_vagrant-ubuntu-web-dev
-vagrant plugin install vagrant-disksize
 vagrant up
-
 ```

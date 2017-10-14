@@ -3,7 +3,7 @@
 
 
 # 检查 Vagrant 插件是否安装
-required_plugins = %w(vagrant-share vagrant-vbguest)
+required_plugins = %w(vagrant-share vagrant-vbguest vagrant-disksize)
 
 plugins_to_install = required_plugins.select { |plugin| not Vagrant.has_plugin? plugin }
 if not plugins_to_install.empty?
