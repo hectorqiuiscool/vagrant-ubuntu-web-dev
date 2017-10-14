@@ -29,6 +29,7 @@ Vagrant.configure(2) do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "ubuntu/xenial64"
   config.vm.hostname = "dev-web-02"
+  config.disksize.size = '30GB'
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -41,6 +42,7 @@ Vagrant.configure(2) do |config|
   # config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "forwarded_port", guest: 80, host: 80
   config.vm.network "forwarded_port", guest: 2333, host: 2333 
+  config.vm.network "forwarded_port", guest: 3306, host: 13306
   config.vm.network "forwarded_port", guest: 5000, host: 5000
   config.vm.network "forwarded_port", guest: 5100, host: 5100
   config.vm.network "forwarded_port", guest: 7474, host: 7474
@@ -53,7 +55,7 @@ Vagrant.configure(2) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  # config.vm.network "private_network", ip: "192.168.233.233"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -81,7 +83,6 @@ Vagrant.configure(2) do |config|
   #
   #   # Customize the amount of memory on the VM:
       vb.memory = "2048"
-
       vb.cpus = 2
   end
   #
