@@ -3,7 +3,7 @@
 # 自定义变量
 
 # mysql root password
-dbpass='nndnnd'
+dbpass='nnnnnn'
 
 # 解决 sudo: unable to resolve host xxxxxx 的问题
 # 解决办法是把 /etc/hostname 的名字在 /etc/hosts 内加一条配置
