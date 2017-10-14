@@ -1,11 +1,24 @@
 # vagrant-ubuntu-web-dev
 用于 web 开发的 ubuntu 环境
 
-## 依赖插件
-- bootstrap.sh
-- harddisk 调整插件
+## 主要配置
+- vbox 基础配置
+  - 2 core CPU
+  - 2G RAM
+  - 30G HDD
+- ubuntu 初始配置（见:bootstrap.sh）
+  - 调整时区和字符集 zh_CN.UTF-8
+  - 调整使用国内 apt 源
+  - python、virtualenvwrapper 环境
+  - nginx
+- 插件
+  - vagrant-share
+  - vagrant-vbguest
+  - vagrant-disksize
 
+## usage
 ```
+git clone git@github.com:hectorqiuiscool/vagrant-ubuntu-web-dev.git
 cd path_to_vagrant-ubuntu-web-dev
 vagrant up
 ```
