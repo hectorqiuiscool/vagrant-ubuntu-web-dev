@@ -5,14 +5,13 @@
 # 检查 Vagrant 插件是否安装
 required_plugins = %w(vagrant-share vagrant-vbguest vagrant-disksize)
 
-plugins_to_install = required_plugins.select { |plugin| not Vagrant.has_plugin? plugin }
-if not plugins_to_install.empty?
-  puts "Installing plugins: #{plugins_to_install.join(' ')}"
-  if system "vagrant plugin install #{plugins_to_install.join(' ')}"
-    exec "vagrant #{ARGV.join(' ')}"
-  else
-    abort "Installation of one or more plugins has failed. Aborting."
-  end
+return if !Vagrant.plugins_enabled?
+
+plugins_to_install = required_plugins.select { |plugin| !Vagrant.has_plugin? plugin }
+
+if plugins_to_install.any?
+  system "vagrant plugin install #{plugins_to_install.join(' ')}"
+  exit system 'vagrant up'
 end
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
@@ -42,15 +41,9 @@ Vagrant.configure(2) do |config|
   # config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "forwarded_port", guest: 80, host: 80
   config.vm.network "forwarded_port", guest: 2333, host: 2333 
-  config.vm.network "forwarded_port", guest: 3306, host: 13306
+  config.vm.network "forwarded_port", guest: 3306, host: 3306
   config.vm.network "forwarded_port", guest: 5000, host: 5000
-  config.vm.network "forwarded_port", guest: 5100, host: 5100
-  config.vm.network "forwarded_port", guest: 7474, host: 7474
   config.vm.network "forwarded_port", guest: 8080, host: 8080
-  config.vm.network "forwarded_port", guest: 8088, host: 8088
-  config.vm.network "forwarded_port", guest: 8888, host: 8888
-  config.vm.network "forwarded_port", guest: 9200, host: 9200 
-  config.vm.network "forwarded_port", guest: 9300, host: 9300 
   config.vm.network "forwarded_port", guest: 6379, host: 6379 
 
   # Create a private network, which allows host-only access to the machine
@@ -66,10 +59,8 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
-  # config.vm.synced_folder "/Users/hectorqiu/workspaces", "/data/workspaces"
+
   config.vm.synced_folder "/Users/hectorqiu", "/mnt/mac"
-  # config.vm.synced_folder "/Users/hectorqiu/data/elasticsearch", "/home/vagrant/data/elasticsearch", owner: "elasticsearch", group: "vagrant"
   config.vm.synced_folder "./etc", "/mnt/config/etc"
 
   # Provider-specific configuration so you can fine-tune various
