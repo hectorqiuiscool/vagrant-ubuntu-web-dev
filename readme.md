@@ -17,6 +17,14 @@
   - vagrant-disksize
 
 ## usage
+
+
+### for Mac OS HomeBrew
+```
+brew cask install virtualbox
+brew cask install vaagrant
+```
+
 ```
 git clone git@github.com:hectorqiuiscool/vagrant-ubuntu-web-dev.git
 cd path_to_vagrant-ubuntu-web-dev
