@@ -22,7 +22,7 @@
 ### for Mac OS HomeBrew
 ```
 brew cask install virtualbox
-brew cask install vaagrant
+brew cask install vagrant
 ```
 
 ```
