@@ -16,11 +16,10 @@ add_box: download_box # 添加 box 到 vagrant
 
 	vagrant box add $(GROUP)/$(BOX) $(GROUP)-$(BOX)-$(BOX_VERSION).box
 
-	cd ~/.vagrant.d/boxes/$(GROUP)-VAGRANTSLASH-$(BOX)/
-	mv 0 1.8.52
+	cd ~/.vagrant.d/boxes/$(GROUP)-VAGRANTSLASH-$(BOX)/ && mv 0 1.8.52
 
 	# 创建 metadata_url 文件
-	echo -n "https://app.vagrantup.com/$(GROUP)/boxes/$(BOX)" > metadata_url
+	cd ~/.vagrant.d/boxes/$(GROUP)-VAGRANTSLASH-$(BOX)/ && echo -n "https://app.vagrantup.com/$(GROUP)/boxes/$(BOX)" > metadata_url
 
 	# 检查 box 列表
 	vagrant box list
