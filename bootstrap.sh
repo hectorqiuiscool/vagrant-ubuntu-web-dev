@@ -19,6 +19,7 @@ sudo apt-get update
 
 # 安装 python 运行环境
 sudo apt-get install -y python-pip python-dev build-essential
+sudo apt-get install -y python-pip python3.6 python3.6-dev
 sudo pip install virtualenvwrapper
 
 echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.bashrc
