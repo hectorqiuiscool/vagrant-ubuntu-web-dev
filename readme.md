@@ -49,21 +49,3 @@ vagrant up
 make add_box
 ```
 
-
-#### 一步步操作（备选）
-```
-# 下载 https://app.vagrantup.com/generic/boxes/ubuntu1804 对应的 1.8.52 virtualbox 镜像
-
-wget https://app.vagrantup.com/generic/boxes/ubuntu1804/versions/1.8.52/providers/virtualbox.box -O ubuntu1804_1.8.52.box
-
-vagrant box add generic/ubuntu1804 ubuntu1804_1.8.52.box
-
-cd ~/.vagrant.d/boxes/generic-VAGRANTSLASH-ubuntu1804/
-mv 0 1.8.52
-
-# 创建 metadata_url 文件
-echo -n "https://app.vagrantup.com/generic/boxes/ubuntu1804" > metadata_url
-
-# 检查 box 列表
-vagrant box list
-```
