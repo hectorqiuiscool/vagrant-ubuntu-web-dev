@@ -1,8 +1,8 @@
-VERSION = 0.0.2
+VERSION = 0.0.3
 
-GROUP = generic
-BOX = ubuntu1804
-BOX_VERSION = 1.8.54
+GROUP = ubuntu
+BOX = bionic64
+BOX_VERSION = 20190119.0.0
 
 BUILD_TIME = $(shell date +%FT%H_%M_%S)
 

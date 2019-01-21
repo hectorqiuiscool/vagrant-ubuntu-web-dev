@@ -27,8 +27,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  # config.vm.box = "ubuntu/bionic64"
-  config.vm.box = "generic/ubuntu1804"
+  config.vm.box = "ubuntu/bionic64"
   config.vm.hostname = "u1804-dev"
   config.vm.box_check_update = false
 
