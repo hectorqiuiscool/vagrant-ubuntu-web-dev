@@ -19,16 +19,23 @@
 ## Usage
 
 
-### for Mac OS HomeBrew
+### for Mac OS
 
 #### 安装 virtualbox
+
+- 下载地址： https://www.virtualbox.org/wiki/Downloads
+- 启动安全限制：https://blogs.oracle.com/scoter/getting-oracle-vm-virtualbox-correctly-installed-on-macos-1014-mojave
+
+
+`PS: 不推荐用 homebrew 安装 virtualbox`
+
 ```
-# mac os verison < 10.13
-brew cask install virtualbox
+# 只适合 mac os verison < 10.13
 # 更高版本由于安全限制，需要通过安装包 gui 安装，
-# 下载地址： https://www.virtualbox.org/wiki/Downloads
-# 启动安全限制：https://blogs.oracle.com/scoter/getting-oracle-vm-virtualbox-correctly-installed-on-macos-1014-mojave
+brew cask install virtualbox
 ```
+
+
 
 #### 安装 vagrant
 ```
